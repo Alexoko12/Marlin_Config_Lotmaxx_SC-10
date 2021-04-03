@@ -2,7 +2,7 @@
 In this repo are sample config files for the use of Marlin with a Lotmaxx SC-10 running on an MKS Robin Nano v1.1 board.
 # How To
 1. Clone correct Marlin release from https://github.com/MarlinFirmware/Marlin/releases
-2. Copy from here the files from Marlin-<release> to cloned marlin.
+2. Copy from here the files from Marlin-\<release\> to cloned marlin.
 3. Modify configs and version as you need.
 4. Compile with platformio.
 5. Copy .pio/build/mks_robin_nano35_lotmaxx/Lotmaxx.bin to sd root.
