@@ -635,7 +635,9 @@
 #define USE_ZMIN_PLUG
 //#define USE_XMAX_PLUG
 //#define USE_YMAX_PLUG
-//#define USE_ZMAX_PLUG
+#if ENABLED(LOTMAXX_BLTOUCH)
+  #define USE_ZMAX_PLUG
+#endif
 
 // Enable pullup for all endstops to prevent a floating state
 #define ENDSTOPPULLUPS
@@ -851,9 +853,7 @@
  * The probe replaces the Z-MIN endstop and is used for Z homing.
  * (Automatically enables USE_PROBE_FOR_Z_HOMING.)
  */
-#if ENABLED(LOTMAXX_BLTOUCH)
-  #define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
-#endif
+//#define Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN
 
 // Force the use of the probe for Z-axis homing
 //#define USE_PROBE_FOR_Z_HOMING
@@ -873,7 +873,9 @@
  *      - normally-closed switches to GND and D32.
  *      - normally-open switches to 5V and D32.
  */
-//#define Z_MIN_PROBE_PIN 32 // Pin 32 is the RAMPS default
+#if ENABLED(LOTMAXX_BLTOUCH)
+  #define Z_MIN_PROBE_PIN PC4 // Pin 32 is the RAMPS default
+#endif
 
 /**
  * Probe Type
@@ -889,7 +891,7 @@
  */
 #if DISABLED(LOTMAXX_BLTOUCH)
   #define PROBE_MANUALLY
-  #define MANUAL_PROBE_START_Z 0.1
+  #define MANUAL_PROBE_START_Z 0.5
 #endif
 
 /**
@@ -1003,7 +1005,7 @@
  *     O-- FRONT --+
  */
 #if ENABLED(LOTMAXX_BLTOUCH)
-  #define NOZZLE_TO_PROBE_OFFSET { 10, 10, 0 }
+  #define NOZZLE_TO_PROBE_OFFSET { -42, -1.4, 0 }
 #else
   #define NOZZLE_TO_PROBE_OFFSET { 0, 0, 0 }  // Nozzle is Probe
 #endif
@@ -1193,7 +1195,7 @@
 #if ENABLED(FILAMENT_RUNOUT_SENSOR)
   #define FIL_RUNOUT_ENABLED_DEFAULT true // Enable the sensor on startup. Override with M412 followed by M500.
   #define NUM_RUNOUT_SENSORS   1          // Number of sensors, up to one per extruder. Define a FIL_RUNOUT#_PIN for each.
-  #define FIL_RUNOUT_STATE     LOW        // Pin state indicating that filament is NOT present.
+  #define FIL_RUNOUT_STATE     HIGH        // Pin state indicating that filament is NOT present.
   #define FIL_RUNOUT_PULLUP               // Use internal pullup for filament runout pins.
   //#define FIL_RUNOUT_PULLDOWN           // Use internal pulldown for filament runout pins.
 
@@ -2311,10 +2313,10 @@
 
   #define TOUCH_SCREEN_CALIBRATION
 
-  #define XPT2046_X_CALIBRATION  17880
-  #define XPT2046_Y_CALIBRATION -12234
-  #define XPT2046_X_OFFSET         -45
-  #define XPT2046_Y_OFFSET         349
+  #define XPT2046_X_CALIBRATION  16805
+  #define XPT2046_Y_CALIBRATION -11048
+  #define XPT2046_X_OFFSET         -24
+  #define XPT2046_Y_OFFSET         330
 #endif
 
 //
