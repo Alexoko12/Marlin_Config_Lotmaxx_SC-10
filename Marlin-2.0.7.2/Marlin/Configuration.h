@@ -467,7 +467,7 @@
 // Above this temperature the heater will be switched off.
 // This can protect components from overheating, but NOT from shorts and failures.
 // (Use MINTEMP for thermistor short/failure protection.)
-#define HEATER_0_MAXTEMP 355  // +15°C Offset for PID --> Max Temp 340°C
+#define HEATER_0_MAXTEMP 355  // +15°C Offset for PID --> Max Temp 340°C E3D Hotend
 #define HEATER_1_MAXTEMP 275
 #define HEATER_2_MAXTEMP 275
 #define HEATER_3_MAXTEMP 275
@@ -475,7 +475,7 @@
 #define HEATER_5_MAXTEMP 275
 #define HEATER_6_MAXTEMP 275
 #define HEATER_7_MAXTEMP 275
-#define BED_MAXTEMP      120  // +10°C Offset for PID --> Max Temp 110°C
+#define BED_MAXTEMP      130  // +10°C Offset for PID --> Max Temp 120°C, Isolations Matterial kann bis 150 °C FR4 bis max 130 °C
 
 //===========================================================================
 //============================= PID Settings ================================
